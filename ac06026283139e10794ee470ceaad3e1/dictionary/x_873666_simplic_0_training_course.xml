@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="7c0252ee83139e10794ee470ceaad35b" label="Training Course" max_length="40" name="x_873666_simplic_0_training_course" type="collection">
+        <element label="Description EN" max_length="5000" name="course_description_en" type="string"/>
+        <element display="true" label="Name" max_length="250" name="course_name" type="string"/>
+        <element label="Description PT" max_length="5000" name="course_description_pt" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_user_criteria_mtom">
+    <sc_cat_item_user_criteria_mtom action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="Training Registration">63436a6683939e10794ee470ceaad365</sc_cat_item>
+        <sys_class_name>sc_cat_item_user_criteria_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-27 20:55:28</sys_created_on>
+        <sys_id>002baa2283d39e10794ee470ceaad376</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Training Registration.User Training</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sc_cat_item_user_criteria_mtom_002baa2283d39e10794ee470ceaad376</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-27 20:55:28</sys_updated_on>
+        <user_criteria display_value="User Training">29a9eaae83939e10794ee470ceaad374</user_criteria>
+    </sc_cat_item_user_criteria_mtom>
+</record_update>

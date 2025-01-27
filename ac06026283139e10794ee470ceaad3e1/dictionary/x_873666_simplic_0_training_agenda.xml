@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1842d6ee83139e10794ee470ceaad3c9" label="Training Agenda" max_length="40" name="x_873666_simplic_0_training_agenda" type="collection">
+        <element label="Date" max_length="40" name="training_date" type="glide_date"/>
+        <element label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
+        <element label="Training Name" max_length="32" name="training" reference="x_873666_simplic_0_training_course" type="reference"/>
+        <element label="Available Slots" max_length="40" name="available_slots" type="integer"/>
+        <index name="index">
+            <element name="instructor"/>
+        </index>
+        <index name="index2">
+            <element name="training"/>
+        </index>
+    </element>
+</database>

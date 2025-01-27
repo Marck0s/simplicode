@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_category">
+    <sc_category action="DELETE">
+        <active>true</active>
+        <description/>
+        <entitlement_script/>
+        <header_icon/>
+        <homepage_image/>
+        <homepage_renderer display_value="Category Items">47ebe8aa3742300054b6a3549dbe5dfa</homepage_renderer>
+        <icon/>
+        <image/>
+        <location/>
+        <mobile_hide_description>false</mobile_hide_description>
+        <mobile_picture/>
+        <mobile_subcategory_render_type>list</mobile_subcategory_render_type>
+        <module/>
+        <order>0</order>
+        <parent/>
+        <roles/>
+        <sc_catalog display_value="Training Registration">fc90ee6283939e10794ee470ceaad3d4</sc_catalog>
+        <sys_class_name>sc_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-27 20:18:05</sys_created_on>
+        <sys_id>55926e2683939e10794ee470ceaad37f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Training Registration</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sc_category_55926e2683939e10794ee470ceaad37f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-27 20:18:05</sys_updated_on>
+        <title>Training Registration</title>
+    </sc_category>
+    <sys_translated_text action="DELETE" query="documentkey=55926e2683939e10794ee470ceaad37f"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sc_category_55926e2683939e10794ee470ceaad37f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_category"><sc_category action="INSERT_OR_UPDATE"><active>true</active><description/><entitlement_script/><header_icon/><homepage_image/><homepage_renderer display_value="Category Items">47ebe8aa3742300054b6a3549dbe5dfa</homepage_renderer><icon/><image/><location/><mobile_hide_description>false</mobile_hide_description><mobile_picture/><mobile_subcategory_render_type>list</mobile_subcategory_render_type><module/><order>0</order><parent/><roles/><sc_catalog display_value="Training Registration">fc90ee6283939e10794ee470ceaad3d4</sc_catalog><sys_class_name>sc_category</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-01-27 20:18:05</sys_created_on><sys_id>55926e2683939e10794ee470ceaad37f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Training Registration</sys_name><sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package><sys_policy/><sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope><sys_update_name>sc_category_55926e2683939e10794ee470ceaad37f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-01-27 20:18:05</sys_updated_on><title>Training Registration</title></sc_category><sys_translated_text action="delete_multiple" query="documentkey=55926e2683939e10794ee470ceaad37f"/></record_update>]]></payload>
+        <payload_hash>-1291242339</payload_hash>
+        <record_name>Training Registration</record_name>
+        <reverted_from/>
+        <source>e006026283139e10794ee470ceaad3e6</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-27 20:18:05</sys_created_on>
+        <sys_id>46926e2683939e10794ee470ceaad3c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194a96a07670000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-27 20:18:05</sys_updated_on>
+        <type>Category</type>
+        <update_guid>46922ee2fd939e107292251f55f50cde</update_guid>
+        <update_guid_history>46922ee2fd939e107292251f55f50cde:-1291242339</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Training Registration">75a66e6a83939e10794ee470ceaad336</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-27 20:35:50</sys_created_on>
+        <sys_db_object display_value="" name="sc_category">sc_category</sys_db_object>
+        <sys_id>4158bc853e234b609aa0b1beb6912610</sys_id>
+        <sys_metadata>55926e2683939e10794ee470ceaad37f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Training Registration</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sc_category_55926e2683939e10794ee470ceaad37f</sys_update_name>
+        <sys_update_version display_value="sc_category_55926e2683939e10794ee470ceaad37f">46926e2683939e10794ee470ceaad3c7</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-27 20:35:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
