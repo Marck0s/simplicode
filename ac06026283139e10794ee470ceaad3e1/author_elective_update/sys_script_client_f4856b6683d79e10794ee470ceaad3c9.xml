@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate Duplicate Agendas</name>
+        <order/>
+        <script><![CDATA[function onSubmit(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   // Obtém a data selecionada pelo usuário
+   var selectedDate = new Date(newValue).toISOString().split('T')[0];
+
+   // Executa consulta na tabela diretamente usando GlideRecord AJAX
+   var duplicateFound = false;
+   var gr = new GlideRecord('x_873666_simplic_0_training_agenda'); // Substitua pelo nome da sua tabela de agendas
+   gr.addQuery('training_date', selectedDate); // Filtra pela data selecionada
+   gr.addQuery('training', g_form.getValue('training')); // Filtra pelo treinamento atual
+   gr.query();
+
+   while (gr.next()) {
+      duplicateFound = true; // Se encontrar um registro, marca como duplicado
+      break;
+   }
+
+   // Exibe mensagem de erro se a data for duplicada
+   if (duplicateFound) {
+      g_form.addErrorMessage('This training already has a schedule on the selected date. Please choose another date.');
+      g_form.setValue('training_date', ''); // Limpa o campo de data
+      return;
+   }
+
+   // Limpa mensagens de erro caso não haja duplicatas
+   g_form.clearMessages();
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 01:20:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f4856b6683d79e10794ee470ceaad3c9</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Validate Duplicate Agendas</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_client_f4856b6683d79e10794ee470ceaad3c9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 01:47:36</sys_updated_on>
+        <table>x_873666_simplic_0_training_agenda</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_client_f4856b6683d79e10794ee470ceaad3c9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Validate Duplicate Agendas&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+
+   // Obtém a data selecionada pelo usuário
+   var selectedDate = new Date(newValue).toISOString().split('T')[0];
+
+   // Executa consulta na tabela diretamente usando GlideRecord AJAX
+   var duplicateFound = false;
+   var gr = new GlideRecord('x_873666_simplic_0_training_agenda'); // Substitua pelo nome da sua tabela de agendas
+   gr.addQuery('training_date', selectedDate); // Filtra pela data selecionada
+   gr.addQuery('training', g_form.getValue('training')); // Filtra pelo treinamento atual
+   gr.query();
+
+   while (gr.next()) {
+      duplicateFound = true; // Se encontrar um registro, marca como duplicado
+      break;
+   }
+
+   // Exibe mensagem de erro se a data for duplicada
+   if (duplicateFound) {
+      g_form.addErrorMessage('This training already has a schedule on the selected date. Please choose another date.');
+      g_form.setValue('training_date', ''); // Limpa o campo de data
+      return;
+   }
+
+   // Limpa mensagens de erro caso não haja duplicatas
+   g_form.clearMessages();
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 01:20:02&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f4856b6683d79e10794ee470ceaad3c9&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;Validate Duplicate Agendas&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_f4856b6683d79e10794ee470ceaad3c9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 01:47:36&lt;/sys_updated_on&gt;&lt;table&gt;x_873666_simplic_0_training_agenda&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1930795470</payload_hash>
+        <record_name>Validate Duplicate Agendas</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 01:47:36</sys_created_on>
+        <sys_id>340eefea83d79e10794ee470ceaad35c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194aa97b3f20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 01:47:36</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>b80eefeacfd79e105c1c4be76854515b</update_guid>
+        <update_guid_history>b80eefeacfd79e105c1c4be76854515b:-1930795470,789de7eeb7d79e10964e9e96691d63ad:1823627972,35696f6a00d79e1080ab365c499bd922:1183413692,8da8a36acfd79e10b3cc5d19d50e92cd:1288164845,15b7272a11d79e1076e4921387e69fd3:2127311975</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 01:49:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>72f9c2c08d7c4c42b81b9233e13d0ca1</sys_id>
+        <sys_metadata>f4856b6683d79e10794ee470ceaad3c9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate Duplicate Agendas</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent display_value="Training Agenda">1842d6ee83139e10794ee470ceaad3c9</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_client_f4856b6683d79e10794ee470ceaad3c9</sys_update_name>
+        <sys_update_version display_value="sys_script_client_f4856b6683d79e10794ee470ceaad3c9">340eefea83d79e10794ee470ceaad35c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 01:49:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

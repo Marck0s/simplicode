@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_873666_simplic_0.Duplicate Dates</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>Duplicate Dates</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var CheckTrainingSchedule = Class.create();
+CheckTrainingSchedule.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+    
+    checkSchedule: function() {
+        var trainingDate = this.getParameter('training_date');
+        var trainingName = this.getParameter('training_name');
+        
+        var gr = new GlideRecord('x_873666_simplic_0_training_agenda');
+        gr.addQuery('training_date', trainingDate);
+        gr.addQuery('trainingName', trainingName);
+        gr.query();
+        
+        if (gr.next()) {
+            return 'duplicate'; // Retorna 'duplicate' se encontrar um agendamento
+        }
+        
+        return 'available'; // Retorna 'available' se não encontrar duplicata
+    }
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 02:48:54</sys_created_on>
+        <sys_id>53db33a2835b9e10794ee470ceaad310</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Duplicate Dates</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_include_53db33a2835b9e10794ee470ceaad310</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 02:49:40</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>53db33a2835b9e10794ee470ceaad310</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 02:48:54</sys_created_on>
+        <sys_id>0b0cf362835b9e10794ee470ceaad3fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 02:48:54</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_include_53db33a2835b9e10794ee470ceaad310</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_873666_simplic_0.Duplicate Dates&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;Duplicate Dates&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var CheckTrainingSchedule = Class.create();
+CheckTrainingSchedule.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+    
+    checkSchedule: function() {
+        var trainingDate = this.getParameter('training_date');
+        var trainingName = this.getParameter('training_name');
+        
+        var gr = new GlideRecord('x_873666_simplic_0_training_agenda');
+        gr.addQuery('training_date', trainingDate);
+        gr.addQuery('trainingName', trainingName);
+        gr.query();
+        
+        if (gr.next()) {
+            return 'duplicate'; // Retorna 'duplicate' se encontrar um agendamento
+        }
+        
+        return 'available'; // Retorna 'available' se não encontrar duplicata
+    }
+});
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 02:48:54&lt;/sys_created_on&gt;&lt;sys_id&gt;53db33a2835b9e10794ee470ceaad310&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Duplicate Dates&lt;/sys_name&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_53db33a2835b9e10794ee470ceaad310&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 02:49:40&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;53db33a2835b9e10794ee470ceaad310&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 02:48:54&lt;/sys_created_on&gt;&lt;sys_id&gt;0b0cf362835b9e10794ee470ceaad3fa&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 02:48:54&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>431064269</payload_hash>
+        <record_name>Duplicate Dates</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 02:49:40</sys_created_on>
+        <sys_id>0e3cb7a2835b9e10794ee470ceaad39c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194aad088300000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 02:49:40</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>823cb7a2eb5b9e1005dcaf202762009c</update_guid>
+        <update_guid_history>823cb7a2eb5b9e1005dcaf202762009c:431064269,cb0c3b62ad5b9e1051a60e3be9bbc50e:-1386251652</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 02:53:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>6e5c8e83bea74f94a39b184b00851999</sys_id>
+        <sys_metadata>53db33a2835b9e10794ee470ceaad310</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Duplicate Dates</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_include_53db33a2835b9e10794ee470ceaad310</sys_update_name>
+        <sys_update_version display_value="sys_script_include_53db33a2835b9e10794ee470ceaad310">0e3cb7a2835b9e10794ee470ceaad39c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 02:53:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

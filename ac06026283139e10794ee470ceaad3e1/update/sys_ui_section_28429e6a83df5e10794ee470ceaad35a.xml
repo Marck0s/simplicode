@@ -4,13 +4,13 @@
             <element>training</element>
             <position>0</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-01-27 19:35:54</sys_created_on>
-            <sys_id>0cf81e2a83539e10794ee470ceaad3ba</sys_id>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>59a64a7a83d3de10794ee470ceaad37e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-01-27 19:35:54</sys_updated_on>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -18,55 +18,69 @@
             <element>instructor</element>
             <position>1</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-01-27 19:35:54</sys_created_on>
-            <sys_id>04f81e2a83539e10794ee470ceaad3bb</sys_id>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>95a64a7a83d3de10794ee470ceaad37f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-01-27 19:35:54</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>.split</element>
-            <position>2</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-01-27 19:35:54</sys_created_on>
-            <sys_id>0cf81e2a83539e10794ee470ceaad3bb</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-01-27 19:35:54</sys_updated_on>
-            <sys_user/>
-            <type>.split</type>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>training_date</element>
-            <position>3</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-01-27 19:35:54</sys_created_on>
-            <sys_id>04f81e2a83539e10794ee470ceaad3bc</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-01-27 19:35:54</sys_updated_on>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>available_slots</element>
-            <position>4</position>
+            <position>2</position>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-01-27 19:35:54</sys_created_on>
-            <sys_id>0cf81e2a83539e10794ee470ceaad3bc</sys_id>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>9da64a7a83d3de10794ee470ceaad37f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-01-27 19:35:54</sys_updated_on>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>95a64a7a83d3de10794ee470ceaad380</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>stage</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>9da64a7a83d3de10794ee470ceaad380</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>training_date</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-01-28 12:54:27</sys_created_on>
+            <sys_id>95a64a7a83d3de10794ee470ceaad381</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_873666_simplic_0_training_agenda" sys_domain="global" view="Default view">28429e6a83df5e10794ee470ceaad35a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-01-28 12:54:27</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>

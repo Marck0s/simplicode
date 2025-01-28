@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>CheckTrainingDuplicate </name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+    var trainingDate = g_form.getValue('training_date');
+    var trainingName = g_form.getValue('training');
+
+    // Cria um objeto GlideAjax para chamar o Script Include
+    var ga = new GlideAjax('CheckTrainingDuplicate');
+    ga.addParam('sys_id', 'checkDuplicate');
+    ga.addParam('training_date', trainingDate);  // Passa a data do treinamento
+    ga.addParam('training', trainingName);  // Passa o nome do treinamento
+
+    // Chama o Script Include de forma assíncrona
+    ga.getXMLAnswer(function(response) {
+        var answer = response.responseXML.documentElement.getAttribute('answer');
+
+        if (answer == 'duplicate') {
+            g_form.addErrorMessage('A training for this subject is already scheduled on the selected date. Please choose another date.');
+            g_form.setValue('training_date', '');  // Limpa o campo de data
+            return false;  // Impede o submit
+        } else {
+            g_form.clearMessages();  // Limpa as mensagens de erro se não houver duplicidade
+            // Não precisa retornar nada aqui, o form será enviado normalmente
+        }
+    });
+
+    // Retorna false para impedir o submit até a validação assíncrona ser concluída
+    return false;  // Impede o submit
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 14:05:40</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d756967e8317de10794ee470ceaad3d6</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>CheckTrainingDuplicate </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_client_d756967e8317de10794ee470ceaad3d6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 14:16:05</sys_updated_on>
+        <table>x_873666_simplic_0_training_agenda</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_client_d756967e8317de10794ee470ceaad3d6</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;CheckTrainingDuplicate &lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    var trainingDate = g_form.getValue('training_date');
+    var trainingName = g_form.getValue('training');
+
+    // Cria um objeto GlideAjax para chamar o Script Include
+    var ga = new GlideAjax('CheckTrainingDuplicate');
+    ga.addParam('sys_id', 'checkDuplicate');
+    ga.addParam('training_date', trainingDate);  // Passa a data do treinamento
+    ga.addParam('training', trainingName);  // Passa o nome do treinamento
+
+    // Chama o Script Include de forma assíncrona
+    ga.getXMLAnswer(function(response) {
+        var answer = response.responseXML.documentElement.getAttribute('answer');
+
+        if (answer == 'duplicate') {
+            g_form.addErrorMessage('A training for this subject is already scheduled on the selected date. Please choose another date.');
+            g_form.setValue('training_date', '');  // Limpa o campo de data
+            return false;  // Impede o submit
+        } else {
+            g_form.clearMessages();  // Limpa as mensagens de erro se não houver duplicidade
+            // Não precisa retornar nada aqui, o form será enviado normalmente
+        }
+    });
+
+    // Retorna false para impedir o submit até a validação assíncrona ser concluída
+    return false;  // Impede o submit
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 14:05:40&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d756967e8317de10794ee470ceaad3d6&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;CheckTrainingDuplicate &lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_d756967e8317de10794ee470ceaad3d6&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 14:16:05&lt;/sys_updated_on&gt;&lt;table&gt;x_873666_simplic_0_training_agenda&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1989407077</payload_hash>
+        <record_name>CheckTrainingDuplicate </record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 14:16:05</sys_created_on>
+        <sys_id>01595efe8317de10794ee470ceaad358</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194ad44f6ed0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 14:16:05</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>85595efe2d17de104940218bc8968157</update_guid>
+        <update_guid_history>85595efe2d17de104940218bc8968157:1989407077,3b08d6fef617de1061136ddcc6b24f9b:1785127616,d6e756be8617de103983d648cf8f2aca:690349325,07c79ebee617de1012458c804396dfe8:1785127616,8c879ebead17de10957ebb052620c573:2106320669,59775ebeb217de1017c430055cb1be79:1449172121,64f69afa1c17de104bcc0ac6637647df:-408336274</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 14:24:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>bde12ccc05cc4b74ab1100453972c7a4</sys_id>
+        <sys_metadata>d756967e8317de10794ee470ceaad3d6</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CheckTrainingDuplicate </sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent display_value="Training Agenda">1842d6ee83139e10794ee470ceaad3c9</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_client_d756967e8317de10794ee470ceaad3d6</sys_update_name>
+        <sys_update_version display_value="sys_script_client_d756967e8317de10794ee470ceaad3d6">01595efe8317de10794ee470ceaad358</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 14:24:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
