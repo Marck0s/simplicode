@@ -37,11 +37,12 @@
         <mandatory>false</mandatory>
         <message/>
         <message_html><![CDATA[<p>Dear ${user.name},</p>
-<p>We are pleased to inform you that your request to participate in the training "${training.course_name}" has been approved! yay</p>
-<p>Training Details:</p>
-<p>${training.course_description_en}</p>
+<p>We are pleased to inform you that your request to participate in the training "${agenda.training.course_name}" has been approved! yay</p>
+<p><strong>Training Details: </strong>"${agenda.training.course_description_en}".</p>
+<p><strong>Instructor:</strong> ${agenda.instructor_training.name}.</p>
 <p>Congrats for this step,&nbsp;</p>
 <p>We look&nbsp;forward&nbsp;to meet you!</p>
+<p>&nbsp;</p>
 <p>Best regards,</p>
 <p>Support Team.</p>]]></message_html>
         <message_list/>
@@ -54,10 +55,10 @@
         <recipient_groups name="Users Training">6ed7a6b28397de10794ee470ceaad377</recipient_groups>
         <recipient_users/>
         <reply_to/>
-        <send_self>true</send_self>
+        <send_self>false</send_self>
         <sms_alternate/>
         <style/>
-        <subject>Request to participate in the training${training.course_name} has been approved!</subject>
+        <subject>Request to participate in the training ${agenda.training.course_name}  has been approved!</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -65,7 +66,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>dc8ebebe83d7de10794ee470ceaad3ba</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Approval Email</sys_name>
         <sys_overrides/>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
@@ -73,7 +74,7 @@
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
         <sys_update_name>sysevent_email_action_dc8ebebe83d7de10794ee470ceaad3ba</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-28 18:14:22</sys_updated_on>
+        <sys_updated_on>2025-01-29 14:14:12</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="Unsubscribe and Preferences">7ed0481f3b0b2200c869c2c703efc487</template>
         <type>email</type>

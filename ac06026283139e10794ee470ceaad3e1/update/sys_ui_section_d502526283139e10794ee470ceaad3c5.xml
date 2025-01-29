@@ -28,6 +28,20 @@
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>teste_grupo</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-01-29 05:14:02</sys_created_on>
+            <sys_id>a6d6a14f83171250794ee470ceaad3ab</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="New Course" display_value="New Course" name="x_873666_simplic_0_training_course" sys_domain="global" view="Default view">d502526283139e10794ee470ceaad3c5</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-01-29 05:14:02</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption>New Course</caption>
             <header>false</header>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="1842d6ee83139e10794ee470ceaad3c9" label="Training Agenda" max_length="40" name="x_873666_simplic_0_training_agenda" type="collection">
         <element label="Date" max_length="40" name="training_date" type="glide_date"/>
-        <element choice="3" default="1" label="Stage" max_length="40" name="stage" type="choice">
-            <choice>
-                <element inactive_on_update="false" label="You already have this topic for that date!" sequence="3" value="3"/>
-                <element inactive_on_update="false" label="Opened" sequence="1" value="1"/>
-                <element inactive_on_update="false" label="Registered" sequence="2" value="2"/>
-            </choice>
-        </element>
-        <element label="Instructor" max_length="32" name="instructor" reference="sys_user" type="reference"/>
-        <element label="Training Name" max_length="32" name="training" reference="x_873666_simplic_0_training_course" type="reference"/>
+        <element label="Instructor Training" max_length="32" name="instructor_training" reference="sys_user" reference_qual="roles=x_873666_simplic_0.instructor_training^EQ" reference_qual_condition="roles=x_873666_simplic_0.instructor_training^EQ" type="reference"/>
+        <element display="true" label="Training Name" max_length="32" name="training" reference="x_873666_simplic_0_training_course" type="reference"/>
         <element label="Available Slots" max_length="40" name="available_slots" type="integer"/>
         <index name="index">
-            <element name="instructor"/>
+            <element name="instructor_training"/>
         </index>
         <index name="index2">
             <element name="training"/>
