@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_873666_simplic_0.TrainingUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>TrainingUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var TrainingUtils = Class.create();
+TrainingUtils.prototype = {
+    initialize: function() {},
+
+    // Função para validar se já existe um treinamento agendado para a mesma matéria e data
+    validateTraining: function(trainingName, trainingDate) {
+        var gr = new GlideRecord('x_873666_simplic_0_training_agenda');  // Substitua pela tabela correta
+        gr.addQuery('training', trainingName);  // Filtro pelo nome da matéria (treinamento)
+        gr.addQuery('training_date', trainingDate);  // Filtro pela data do treinamento
+        gr.query();
+
+        return gr.hasNext() ? 'true' : 'false'; // Retorna 'true' se existe, 'false' caso contrário
+    },
+
+    // Método chamado pelo GlideAjax para validar a duplicidade
+    validateTrainingAjax: function() {
+        var trainingName = this.getParameter('trainingName');  // Obtém o nome da matéria
+        var trainingDate = this.getParameter('trainingDate');  // Obtém a data do treinamento
+        var result = this.validateTraining(trainingName, trainingDate);  // Chama a função de validação
+
+        // Retorna a resposta para o Client Script
+        return result;
+    },
+
+    type: 'TrainingUtils'  // Define o nome do tipo
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 20:08:29</sys_created_on>
+        <sys_id>65c66f3283dbde10794ee470ceaad3d5</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>TrainingUtils</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_include_65c66f3283dbde10794ee470ceaad3d5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 20:16:19</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>65c66f3283dbde10794ee470ceaad3d5</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 20:08:29</sys_created_on>
+        <sys_id>0ff92fbe839bde10794ee470ceaad3f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 20:08:29</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_include_65c66f3283dbde10794ee470ceaad3d5</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_873666_simplic_0.TrainingUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;TrainingUtils&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var TrainingUtils = Class.create();
+TrainingUtils.prototype = {
+    initialize: function() {},
+
+    // Função para validar se já existe um treinamento agendado para a mesma matéria e data
+    validateTraining: function(trainingName, trainingDate) {
+        var gr = new GlideRecord('x_873666_simplic_0_training_agenda');  // Substitua pela tabela correta
+        gr.addQuery('training', trainingName);  // Filtro pelo nome da matéria (treinamento)
+        gr.addQuery('training_date', trainingDate);  // Filtro pela data do treinamento
+        gr.query();
+
+        return gr.hasNext() ? 'true' : 'false'; // Retorna 'true' se existe, 'false' caso contrário
+    },
+
+    // Método chamado pelo GlideAjax para validar a duplicidade
+    validateTrainingAjax: function() {
+        var trainingName = this.getParameter('trainingName');  // Obtém o nome da matéria
+        var trainingDate = this.getParameter('trainingDate');  // Obtém a data do treinamento
+        var result = this.validateTraining(trainingName, trainingDate);  // Chama a função de validação
+
+        // Retorna a resposta para o Client Script
+        return result;
+    },
+
+    type: 'TrainingUtils'  // Define o nome do tipo
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 20:08:29&lt;/sys_created_on&gt;&lt;sys_id&gt;65c66f3283dbde10794ee470ceaad3d5&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;TrainingUtils&lt;/sys_name&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_65c66f3283dbde10794ee470ceaad3d5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 20:16:19&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;65c66f3283dbde10794ee470ceaad3d5&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 20:08:29&lt;/sys_created_on&gt;&lt;sys_id&gt;0ff92fbe839bde10794ee470ceaad3f6&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 20:08:29&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1873810570</payload_hash>
+        <record_name>TrainingUtils</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 20:16:19</sys_created_on>
+        <sys_id>86cb23b683dbde10794ee470ceaad352</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194ae8ec5bf0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 20:16:19</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>0ecb23b65adbde10054024094a17c851</update_guid>
+        <update_guid_history>0ecb23b65adbde10054024094a17c851:1873810570,a6cae37674dbde101d7fe4a31fc1fb1e:-1209854227,de6ae37637dbde107877e25e35ee4533:1791734325,6ff9ab36c8dbde10be1def884f891b8b:1400428979</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-29 19:33:30</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>39e693a9236541f29888ae3d9f86a6c4</sys_id>
+        <sys_metadata>65c66f3283dbde10794ee470ceaad3d5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TrainingUtils</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_include_65c66f3283dbde10794ee470ceaad3d5</sys_update_name>
+        <sys_update_version display_value="sys_script_include_65c66f3283dbde10794ee470ceaad3d5">86cb23b683dbde10794ee470ceaad352</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-29 19:33:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
