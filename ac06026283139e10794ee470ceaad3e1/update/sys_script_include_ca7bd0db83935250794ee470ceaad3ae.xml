@@ -38,35 +38,29 @@ UserAlreadyRegisteredUtil.prototype = {
             }
         }
 
-		//Limit Registration to One Day Before Training
-        var expiredTrainings = [];
-
-        var now = new GlideDate();
-        grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
-        grAgendaCheck.query();
-        while (grAgendaCheck.next()) {
-            var trainingDate = new GlideDateTime(grAgendaCheck.training_date);
-            trainingDate.addDays(-1); //Let registration until 1 day before
-
-            if (now.compareTo(trainingDate) >= 0) {
-                expiredTrainings.push(grAgendaCheck.getUniqueValue());
-            }
-        }
-
         //Validate Dup Trainings Applications | More than 3 applications | Expired Trainings
         var toBeShown = [];
         var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
         grAgenda.query();
-        while (grAgenda.next()) {
 
+        while (grAgenda.next()) {
             var trainingCourse = grAgenda.training.toString();
+
+            const currentDate = new Date();
+            const trainingDate = new Date(grAgenda.training_date);
+
+            currentDate.setHours(0, 0, 0, 0);
+            trainingDate.setHours(0, 0, 0, 0);
+
+            if (currentDate > trainingDate) {
+                continue;
+            }
 
             if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
                 continue;
             }
 
-            if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1 &&
-                expiredTrainings.indexOf(grAgenda.getUniqueValue()) == -1) {
+            if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
                 toBeShown.push(grAgenda.getUniqueValue());
             }
         }
@@ -145,14 +139,14 @@ UserAlreadyRegisteredUtil.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-01-29 19:26:51</sys_created_on>
         <sys_id>ca7bd0db83935250794ee470ceaad3ae</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>23</sys_mod_count>
         <sys_name>UserAlreadyRegisteredUtil</sys_name>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
         <sys_update_name>sys_script_include_ca7bd0db83935250794ee470ceaad3ae</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-29 21:18:56</sys_updated_on>
+        <sys_updated_on>2025-01-30 02:47:44</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>ca7bd0db83935250794ee470ceaad3ae</id>
