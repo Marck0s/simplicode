@@ -4,8 +4,8 @@
         <active>true</active>
         <availability>on_desktop</availability>
         <billable>false</billable>
-        <category/>
-        <checked_out/>
+        <category display_value="Training Registration">c1a5aa2a83939e10794ee470ceaad3c8</category>
+        <checked_out>false</checked_out>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan display_value="DEFAULT">523da512c611228900811a37c97c2014</delivery_plan>
@@ -61,26 +61,26 @@
         <short_description/>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
-        <state/>
+        <state>published</state>
         <sys_class_name>sc_cat_item</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-01-27 20:16:15</sys_created_on>
         <sys_id>79122ee283939e10794ee470ceaad38c</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Training Registration</sys_name>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy/>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
         <sys_update_name>sc_cat_item_79122ee283939e10794ee470ceaad38c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-27 20:29:34</sys_updated_on>
+        <sys_updated_on>2025-01-31 07:15:33</sys_updated_on>
         <taxonomy_topic/>
         <template/>
         <template_manager_roles/>
         <type>item</type>
         <use_sc_layout>true</use_sc_layout>
         <vendor/>
-        <version>4</version>
+        <version>5</version>
         <visible_bundle>true</visible_bundle>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
-        <active>false</active>
+        <active>true</active>
         <api_name>x_873666_simplic_0.UserAlreadyRegisteredUtil</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
@@ -11,113 +11,114 @@
         <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var UserAlreadyRegisteredUtil = Class.create();
 UserAlreadyRegisteredUtil.prototype = {
-    initialize: function() {},
-    refQualAgenda: function() {
+	initialize: function () { },
+	refQualAgenda: function () {
 
-        //Hide if user Already Applied the Training once
-        var notTobeShown = [];
+		//Hide if user Already Applied the Training once
+		var notTobeShown = [];
 
-        var grRegistration = new GlideRecord('x_873666_simplic_0_training_registration');
-        grRegistration.addEncodedQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
-        grRegistration.query();
-        while (grRegistration.next()) {
-            notTobeShown.push(grRegistration.agenda.sys_id.toString());
-        }
+		var grRegistration = new GlideRecord('x_873666_simplic_0_training_registration');
+		grRegistration.addEncodedQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grRegistration.query();
+		while (grRegistration.next()) {
+			notTobeShown.push(grRegistration.agenda.sys_id.toString());
+		}
 
-        //Limit Registration to 3 Times per Treining
-        var coursesLimitReached = [];
+		//Limit Registration to 3 Times per Training
+		var coursesLimitReached = [];
 
-        var grCourseCount = new GlideAggregate('x_873666_simplic_0_training_registration');
-        grCourseCount.addQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
-        grCourseCount.groupBy('agenda.training');
-        grCourseCount.addAggregate('COUNT');
-        grCourseCount.query();
-        while (grCourseCount.next()) {
-            if (grCourseCount.getAggregate('COUNT') >= 3) {
-                coursesLimitReached.push(grCourseCount.getValue('agenda.training'));
-            }
-        }
+		var grCourseCount = new GlideAggregate('x_873666_simplic_0_training_registration');
+		grCourseCount.addQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grCourseCount.groupBy('agenda.training');
+		grCourseCount.addAggregate('COUNT');
+		grCourseCount.query();
+		while (grCourseCount.next()) {
+			if (grCourseCount.getAggregate('COUNT') >= 3) {
+				coursesLimitReached.push(grCourseCount.getValue('agenda.training'));
+			}
+		}
 
 		//Limit of Available Slots in a Training
-        var fullyBookedTrainings = [];
+		var fullyBookedTrainings = [];
 
-        var grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
-        grAgendaCheck.query();
-        while (grAgendaCheck.next()) {
-            var availableSlots = parseInt(grAgendaCheck.available_slots, 10) || 0;
-            if (availableSlots <= 0) {
-                fullyBookedTrainings.push(grAgendaCheck.getUniqueValue());
-            }
-        }
+		var grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgendaCheck.query();
+		while (grAgendaCheck.next()) {
+			var availableSlots = parseInt(grAgendaCheck.available_slots, 10) || 0;
+			if (availableSlots <= 0) {
+				fullyBookedTrainings.push(grAgendaCheck.getUniqueValue());
+			}
+		}
 
 		//Prevent Instructors from Registrating in their own Trainings
 		var instructorOwnedTrainings = [];
 		var userId = gs.getUserID();
-		
+
 		var grInstructorCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
 		grInstructorCheck.addQuery("instructor_training", userId);
 		grInstructorCheck.query();
-		while(grInstructorCheck.next()) {
+		while (grInstructorCheck.next()) {
 			instructorOwnedTrainings.push(grInstructorCheck.getUniqueValue());
 		}
 
-        //Validate Dup Trainings | More than 3 applications | Expired Trainings | Instructors to Own Trainings
-        var toBeShown = [];
+		//Validate Dup Trainings | More than 3 applications | Expired Trainings | Instructors to Own Trainings
+		var toBeShown = [];
 
-        var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
-        grAgenda.query();
+		var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgenda.query();
 
-        while (grAgenda.next()) {
-            var trainingCourse = grAgenda.training.toString();
+		while (grAgenda.next()) {
+			var trainingCourse = grAgenda.training.toString();
 
-            var currentDate = new Date();
-            var trainingDate = new Date(grAgenda.training_date);
+			var currentDate = new Date();
+			var trainingDate = new Date(grAgenda.training_date);
 
-            currentDate.setHours(0, 0, 0, 0);
-            trainingDate.setHours(0, 0, 0, 0);
+			currentDate.setHours(0, 0, 0, 0);
+			trainingDate.setHours(0, 0, 0, 0);
 
-            //Prevent registration if data training already passed by
-            if (currentDate > trainingDate) {
-                continue;
-            }
-
-            //Prevent registration if reached the limit of 3 for the same training
-            if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
-                continue;
-            }
-
-			//Prevent registration if the number max of slots is full
-            if (fullyBookedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
-                continue;
-            }
-
-			//Prevent instructor's registration on their own trainings
-			if (instructorOwnedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1){
+			//Prevent registration if data training already passed by
+			if (currentDate > trainingDate) {
 				continue;
 			}
 
-            //Check if user is already registrated
-            if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
-                toBeShown.push(grAgenda.getUniqueValue());
-            }
-        }
-        return "sys_idIN" + toBeShown.join(",");
+			//Prevent registration if reached the limit of 3 for the same training
+			if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
+				continue;
+			}
 
-    },
-    type: 'UserAlreadyRegisteredUtil'
-};]]></script>
+			//Prevent registration if the number max of slots is full
+			if (fullyBookedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Prevent instructor's registration on their own trainings
+			if (instructorOwnedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Check if user is already registrated
+			if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
+				toBeShown.push(grAgenda.getUniqueValue());
+			}
+		}
+		return "sys_idIN" + toBeShown.join(",");
+
+	},
+	type: 'UserAlreadyRegisteredUtil'
+};
+]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-01-29 19:26:51</sys_created_on>
         <sys_id>ca7bd0db83935250794ee470ceaad3ae</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>UserAlreadyRegisteredUtil</sys_name>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
         <sys_update_name>sys_script_include_ca7bd0db83935250794ee470ceaad3ae</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-31 03:44:38</sys_updated_on>
+        <sys_updated_on>2025-01-31 19:46:14</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>ca7bd0db83935250794ee470ceaad3ae</id>

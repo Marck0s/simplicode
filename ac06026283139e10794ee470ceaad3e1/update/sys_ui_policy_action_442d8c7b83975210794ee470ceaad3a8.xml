@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>false</disabled>
+        <field>instructor_training</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 06:37:27</sys_created_on>
+        <sys_id>442d8c7b83975210794ee470ceaad3a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>instructor_training</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_ui_policy_action_442d8c7b83975210794ee470ceaad3a8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 06:37:27</sys_updated_on>
+        <table>x_873666_simplic_0_training_agenda</table>
+        <ui_policy display_value="Training Agenda Treatments">636c407b83975210794ee470ceaad317</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=442d8c7b83975210794ee470ceaad3a8"/>
+</record_update>

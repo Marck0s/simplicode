@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="Training Registration">63436a6683939e10794ee470ceaad365</catalog_item>
+        <catalog_variable>IO:8aa303fb83179210794ee470ceaad33b</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field/>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 20:16:10</sys_created_on>
+        <sys_id>70880f7383579210794ee470ceaad357</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>training_description</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_70880f7383579210794ee470ceaad357</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 20:16:33</sys_updated_on>
+        <table/>
+        <ui_policy display_value="ReadOnly Fields">70880b7383579210794ee470ceaad36e</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <variable>training_description</variable>
+        <variable_set/>
+        <visible>true</visible>
+    </catalog_ui_policy_action>
+    <sys_translated_text action="delete_multiple" query="documentkey=70880f7383579210794ee470ceaad357"/>
+</record_update>

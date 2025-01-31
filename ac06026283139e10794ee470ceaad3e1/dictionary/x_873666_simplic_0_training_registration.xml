@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="e8d3966283539e10794ee470ceaad37d" extends="task" label="Training Registration" max_length="40" name="x_873666_simplic_0_training_registration" type="collection">
+        <element choice="1" display="true" label="Status - Active/Remove" max_length="50" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Active" sequence="0" value="1"/>
+                <element inactive_on_update="false" label="Remove this User" sequence="1" value="2"/>
+            </choice>
+        </element>
         <element label="Agenda" max_length="32" name="agenda" reference="x_873666_simplic_0_training_agenda" type="reference"/>
         <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
     </element>

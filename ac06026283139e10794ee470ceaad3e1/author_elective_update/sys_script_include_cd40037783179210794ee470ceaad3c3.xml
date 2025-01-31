@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_873666_simplic_0.PortalViewTreatmentsUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>PortalViewTreatmentsUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var PortalViewTreatmentsUtils = Class.create();
+PortalViewTreatmentsUtils.prototype = {
+	initialize: function () { },
+	refQualAgenda: function () {
+
+		//Hide if user Already Applied the Training once
+		var notTobeShown = [];
+
+		var grRegistration = new GlideRecord('x_873666_simplic_0_training_registration');
+		grRegistration.addEncodedQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grRegistration.query();
+		while (grRegistration.next()) {
+			notTobeShown.push(grRegistration.agenda.sys_id.toString());
+		}
+
+		//Limit Registration to 3 Times per Training
+		var coursesLimitReached = [];
+
+		var grCourseCount = new GlideAggregate('x_873666_simplic_0_training_registration');
+		grCourseCount.addQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grCourseCount.groupBy('agenda.training');
+		grCourseCount.addAggregate('COUNT');
+		grCourseCount.query();
+		while (grCourseCount.next()) {
+			if (grCourseCount.getAggregate('COUNT') >= 3) {
+				coursesLimitReached.push(grCourseCount.getValue('agenda.training'));
+			}
+		}
+
+		//Limit of Available Slots in a Training
+		var fullyBookedTrainings = [];
+
+		var grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgendaCheck.query();
+		while (grAgendaCheck.next()) {
+			var availableSlots = parseInt(grAgendaCheck.available_slots, 10) || 0;
+			if (availableSlots <= 0) {
+				fullyBookedTrainings.push(grAgendaCheck.getUniqueValue());
+			}
+		}
+
+		//Prevent Instructors from Registrating in their own Trainings
+		var instructorOwnedTrainings = [];
+		var userId = gs.getUserID();
+
+		var grInstructorCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grInstructorCheck.addQuery("instructor_training", userId);
+		grInstructorCheck.query();
+		while (grInstructorCheck.next()) {
+			instructorOwnedTrainings.push(grInstructorCheck.getUniqueValue());
+		}
+
+		//Validate Dup Trainings | More than 3 applications | Expired Trainings | Instructors to Own Trainings
+		var toBeShown = [];
+
+		var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgenda.query();
+
+		while (grAgenda.next()) {
+			var trainingCourse = grAgenda.training.toString();
+
+			var currentDate = new Date();
+			var trainingDate = new Date(grAgenda.training_date);
+
+			currentDate.setHours(0, 0, 0, 0);
+			trainingDate.setHours(0, 0, 0, 0);
+
+			//Prevent registration if data training already passed by
+			if (currentDate > trainingDate) {
+				continue;
+			}
+
+			//Prevent registration if reached the limit of 3 for the same training
+			if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
+				continue;
+			}
+
+			//Prevent registration if the number max of slots is full
+			if (fullyBookedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Prevent instructor's registration on their own trainings
+			if (instructorOwnedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Check if user is already registrated
+			if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
+				toBeShown.push(grAgenda.getUniqueValue());
+			}
+		}
+		return "sys_idIN" + toBeShown.join(",");
+
+	},
+	type: 'PortalViewTreatmentsUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 19:41:54</sys_created_on>
+        <sys_id>cd40037783179210794ee470ceaad3c3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>PortalViewTreatmentsUtils</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_include_cd40037783179210794ee470ceaad3c3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 19:42:12</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>cd40037783179210794ee470ceaad3c3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 19:41:53</sys_created_on>
+        <sys_id>faa04b3783179210794ee470ceaad3e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 19:41:53</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_include_cd40037783179210794ee470ceaad3c3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;public&lt;/access&gt;&lt;active&gt;false&lt;/active&gt;&lt;api_name&gt;x_873666_simplic_0.PortalViewTreatmentsUtils&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name&gt;PortalViewTreatmentsUtils&lt;/name&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var PortalViewTreatmentsUtils = Class.create();
+PortalViewTreatmentsUtils.prototype = {
+	initialize: function () { },
+	refQualAgenda: function () {
+
+		//Hide if user Already Applied the Training once
+		var notTobeShown = [];
+
+		var grRegistration = new GlideRecord('x_873666_simplic_0_training_registration');
+		grRegistration.addEncodedQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grRegistration.query();
+		while (grRegistration.next()) {
+			notTobeShown.push(grRegistration.agenda.sys_id.toString());
+		}
+
+		//Limit Registration to 3 Times per Training
+		var coursesLimitReached = [];
+
+		var grCourseCount = new GlideAggregate('x_873666_simplic_0_training_registration');
+		grCourseCount.addQuery("opened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe");
+		grCourseCount.groupBy('agenda.training');
+		grCourseCount.addAggregate('COUNT');
+		grCourseCount.query();
+		while (grCourseCount.next()) {
+			if (grCourseCount.getAggregate('COUNT') &gt;= 3) {
+				coursesLimitReached.push(grCourseCount.getValue('agenda.training'));
+			}
+		}
+
+		//Limit of Available Slots in a Training
+		var fullyBookedTrainings = [];
+
+		var grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgendaCheck.query();
+		while (grAgendaCheck.next()) {
+			var availableSlots = parseInt(grAgendaCheck.available_slots, 10) || 0;
+			if (availableSlots &lt;= 0) {
+				fullyBookedTrainings.push(grAgendaCheck.getUniqueValue());
+			}
+		}
+
+		//Prevent Instructors from Registrating in their own Trainings
+		var instructorOwnedTrainings = [];
+		var userId = gs.getUserID();
+
+		var grInstructorCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grInstructorCheck.addQuery("instructor_training", userId);
+		grInstructorCheck.query();
+		while (grInstructorCheck.next()) {
+			instructorOwnedTrainings.push(grInstructorCheck.getUniqueValue());
+		}
+
+		//Validate Dup Trainings | More than 3 applications | Expired Trainings | Instructors to Own Trainings
+		var toBeShown = [];
+
+		var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grAgenda.query();
+
+		while (grAgenda.next()) {
+			var trainingCourse = grAgenda.training.toString();
+
+			var currentDate = new Date();
+			var trainingDate = new Date(grAgenda.training_date);
+
+			currentDate.setHours(0, 0, 0, 0);
+			trainingDate.setHours(0, 0, 0, 0);
+
+			//Prevent registration if data training already passed by
+			if (currentDate &gt; trainingDate) {
+				continue;
+			}
+
+			//Prevent registration if reached the limit of 3 for the same training
+			if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
+				continue;
+			}
+
+			//Prevent registration if the number max of slots is full
+			if (fullyBookedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Prevent instructor's registration on their own trainings
+			if (instructorOwnedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+				continue;
+			}
+
+			//Check if user is already registrated
+			if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
+				toBeShown.push(grAgenda.getUniqueValue());
+			}
+		}
+		return "sys_idIN" + toBeShown.join(",");
+
+	},
+	type: 'PortalViewTreatmentsUtils'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-31 19:41:54&lt;/sys_created_on&gt;&lt;sys_id&gt;cd40037783179210794ee470ceaad3c3&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;PortalViewTreatmentsUtils&lt;/sys_name&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_cd40037783179210794ee470ceaad3c3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-31 19:42:12&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;cd40037783179210794ee470ceaad3c3&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-31 19:41:53&lt;/sys_created_on&gt;&lt;sys_id&gt;faa04b3783179210794ee470ceaad3e4&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-31 19:41:53&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>636571013</payload_hash>
+        <record_name>PortalViewTreatmentsUtils</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 19:42:12</sys_created_on>
+        <sys_id>9fb0c3b783179210794ee470ceaad337</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194bde29d940000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 19:42:12</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>93b0c3b7ee179210bf56fada7b785b37</update_guid>
+        <update_guid_history>93b0c3b7ee179210bf56fada7b785b37:636571013,fea083b76217921002b908564906ecf7:311700146</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 19:43:17</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>4435f5ce7ff74ff6bef2a2e265740264</sys_id>
+        <sys_metadata>cd40037783179210794ee470ceaad3c3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PortalViewTreatmentsUtils</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_include_cd40037783179210794ee470ceaad3c3</sys_update_name>
+        <sys_update_version display_value="sys_script_include_cd40037783179210794ee470ceaad3c3">9fb0c3b783179210794ee470ceaad337</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 19:43:17</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

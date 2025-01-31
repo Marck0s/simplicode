@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>training_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>TrainingValidator</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    // Não faz nada se o formulário estiver carregando ou o novo valor estiver vazio
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // Obtém a data escolhida
+    var pickUpDate = new Date(newValue);
+
+    // Formata a data escolhida para o formato 'yyyy-mm-dd'
+    var selectedDateOnly = pickUpDate.toISOString().split('T')[0];
+
+    // Verifica se o campo de nome do treinamento (matéria) está preenchido
+    var trainingName = g_form.getValue('training');  // 'training' deve ser o nome correto do campo de treinamento
+
+    // Se não houver nome do treinamento ou data, retorna sem fazer nada
+    if (!trainingName || !selectedDateOnly) {
+        return;
+    }
+
+    // Chama o Script Include usando GlideAjax
+    var ga = new GlideAjax('TrainingUtils');  // Chama o Script Include
+
+    // Passa parâmetros para o Script Include
+    ga.addParam('trainingName', trainingName);  // Passa o nome do treinamento (matéria)
+    ga.addParam('trainingDate', selectedDateOnly); // Passa a data do treinamento
+
+    // Faz a requisição e trata a resposta
+    ga.getXMLAnswer(function(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+
+        // Se a resposta for 'true', significa que já existe o treinamento para essa data e matéria
+        if (answer === 'true') {
+            g_form.addErrorMessage("A training session for this subject already exists on the selected date.");
+            g_form.setValue('training_date', '');  // Limpa o campo de data
+        } else {
+            g_form.clearMessages();  // Limpa as mensagens de erro, se a data for válida
+        }
+    });
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 14:33:12</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>fd3bdaf28357de10794ee470ceaad3df</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>TrainingValidator</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_client_fd3bdaf28357de10794ee470ceaad3df</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 20:10:11</sys_updated_on>
+        <table>x_873666_simplic_0_training_agenda</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_client_fd3bdaf28357de10794ee470ceaad3df</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;training_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;TrainingValidator&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    // Não faz nada se o formulário estiver carregando ou o novo valor estiver vazio
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // Obtém a data escolhida
+    var pickUpDate = new Date(newValue);
+
+    // Formata a data escolhida para o formato 'yyyy-mm-dd'
+    var selectedDateOnly = pickUpDate.toISOString().split('T')[0];
+
+    // Verifica se o campo de nome do treinamento (matéria) está preenchido
+    var trainingName = g_form.getValue('training');  // 'training' deve ser o nome correto do campo de treinamento
+
+    // Se não houver nome do treinamento ou data, retorna sem fazer nada
+    if (!trainingName || !selectedDateOnly) {
+        return;
+    }
+
+    // Chama o Script Include usando GlideAjax
+    var ga = new GlideAjax('TrainingUtils');  // Chama o Script Include
+
+    // Passa parâmetros para o Script Include
+    ga.addParam('trainingName', trainingName);  // Passa o nome do treinamento (matéria)
+    ga.addParam('trainingDate', selectedDateOnly); // Passa a data do treinamento
+
+    // Faz a requisição e trata a resposta
+    ga.getXMLAnswer(function(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+
+        // Se a resposta for 'true', significa que já existe o treinamento para essa data e matéria
+        if (answer === 'true') {
+            g_form.addErrorMessage("A training session for this subject already exists on the selected date.");
+            g_form.setValue('training_date', '');  // Limpa o campo de data
+        } else {
+            g_form.clearMessages();  // Limpa as mensagens de erro, se a data for válida
+        }
+    });
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-28 14:33:12&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;fd3bdaf28357de10794ee470ceaad3df&lt;/sys_id&gt;&lt;sys_mod_count&gt;14&lt;/sys_mod_count&gt;&lt;sys_name&gt;TrainingValidator&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_fd3bdaf28357de10794ee470ceaad3df&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-28 20:10:11&lt;/sys_updated_on&gt;&lt;table&gt;x_873666_simplic_0_training_agenda&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-2001056788</payload_hash>
+        <record_name>TrainingValidator</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-28 20:10:11</sys_created_on>
+        <sys_id>086aa37683dbde10794ee470ceaad350</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194ae8925d10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-28 20:10:11</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>446a2f360bdbde106ae080254fdb71eb</update_guid>
+        <update_guid_history>446a2f360bdbde106ae080254fdb71eb:-2001056788,6fd92b3664dbde10978c032464307a0f:-1583952499,7ee4af7e519bde10921977ea10f1f4dd:-1453885809,ef23a73ec99bde103fc3ffadd2cb1896:-1811262741,58a2237a939bde1078994c38fdfb9f25:287932890,ec006b3ab29bde1039b98d110baa8d54:-608778884,039d5ff20b9bde10fbeb727de21c5437:1952389156,7ddcd3f2fc9bde10da3471731f85f268:699608052,699b1fb2f49bde10f3b6fa28392003ff:-1530870680,ff5b9b32379bde108ad2fa11171c5141:1968272881,1d5b1fb2649bde106178984243ecd5f8:-560669672,d7899b32579bde10177974fa82a8fb3a:1385890662,ea599732599bde10a89205182a0b7b40:1789351730,dd7dda765b57de10e79d9f2d6ae6b5e3:-779308306,ff3d52b62457de109c470f372c9136d1:2081898222</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-31 15:14:23</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>770d77e744d04172979318848bca2b84</sys_id>
+        <sys_metadata>fd3bdaf28357de10794ee470ceaad3df</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TrainingValidator</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent display_value="Training Agenda">1842d6ee83139e10794ee470ceaad3c9</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_client_fd3bdaf28357de10794ee470ceaad3df</sys_update_name>
+        <sys_update_version display_value="sys_script_client_fd3bdaf28357de10794ee470ceaad3df">086aa37683dbde10794ee470ceaad350</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 15:14:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
