@@ -4,9 +4,7 @@
         <application display_value="Training Menu">6ebc6ea283d39e10794ee470ceaad34f</application>
         <assessment/>
         <device_type/>
-        <filter table="x_873666_simplic_0_training_agenda">instructor_trainingDYNAMIC90d1921e5f510100a9ad2572f2b477fe^EQ<item endquery="false" field="instructor_training" goto="false" newquery="false" operator="DYNAMIC" or="false" value="90d1921e5f510100a9ad2572f2b477fe"/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter>
+        <filter/>
         <hint>List of Agenda</hint>
         <homepage/>
         <image/>
@@ -15,27 +13,27 @@
         <mobile_title>Agenda List</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_873666_simplic_0_training_agenda</name>
-        <order>610</order>
+        <order>600</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
         <require_confirmation>true</require_confirmation>
-        <roles>x_873666_simplic_0.instructor_training</roles>
+        <roles>x_873666_simplic_0.admin_training</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-01-27 21:06:10</sys_created_on>
+        <sys_created_on>2025-01-30 04:36:17</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>4e6d226283d39e10794ee470ceaad389</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_id>93c7a293835f5250794ee470ceaad3e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>Agenda List</sys_name>
         <sys_overrides/>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy/>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
-        <sys_update_name>sys_app_module_4e6d226283d39e10794ee470ceaad389</sys_update_name>
+        <sys_update_name>sys_app_module_93c7a293835f5250794ee470ceaad3e5</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-30 04:35:48</sys_updated_on>
+        <sys_updated_on>2025-01-30 04:36:17</sys_updated_on>
         <timeline_page/>
         <title>Agenda List</title>
         <uncancelable>false</uncancelable>

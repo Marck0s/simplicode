@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="DELETE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_873666_simplic_0.TESTE</name>
+        <scoped_admin>false</scoped_admin>
+        <suffix>TESTE</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 17:55:54</sys_created_on>
+        <sys_id>03ce55a3835b1210794ee470ceaad320</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_873666_simplic_0.TESTE</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_user_role_03ce55a3835b1210794ee470ceaad320</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 17:55:54</sys_updated_on>
+    </sys_user_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_user_role_03ce55a3835b1210794ee470ceaad320</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><grantable>true</grantable><includes_roles/><name>x_873666_simplic_0.TESTE</name><scoped_admin>false</scoped_admin><suffix>TESTE</suffix><sys_class_name>sys_user_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-01-30 17:55:54</sys_created_on><sys_id>03ce55a3835b1210794ee470ceaad320</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_873666_simplic_0.TESTE</sys_name><sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package><sys_policy/><sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope><sys_update_name>sys_user_role_03ce55a3835b1210794ee470ceaad320</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-01-30 17:55:54</sys_updated_on></sys_user_role></record_update>]]></payload>
+        <payload_hash>991653276</payload_hash>
+        <record_name>x_873666_simplic_0.TESTE</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 17:55:54</sys_created_on>
+        <sys_id>60de19a3835b1210794ee470ceaad3e1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194b85aefc20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 17:55:54</sys_updated_on>
+        <type>Role</type>
+        <update_guid>64de19a3385b12101d209bca80039de0</update_guid>
+        <update_guid_history>64de19a3385b12101d209bca80039de0:991653276</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_873666_simplic_0.TESTE">c5ee1163835b1210794ee470ceaad329</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 17:56:14</sys_created_on>
+        <sys_db_object display_value="" name="sys_user_role">sys_user_role</sys_db_object>
+        <sys_id>bffcae9708994770995bb8a7fd72da40</sys_id>
+        <sys_metadata>03ce55a3835b1210794ee470ceaad320</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_873666_simplic_0.TESTE</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_user_role_03ce55a3835b1210794ee470ceaad320</sys_update_name>
+        <sys_update_version display_value="sys_user_role_03ce55a3835b1210794ee470ceaad320">60de19a3835b1210794ee470ceaad3e1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 17:56:14</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

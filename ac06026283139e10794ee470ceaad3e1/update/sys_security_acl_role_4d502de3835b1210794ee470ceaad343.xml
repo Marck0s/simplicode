@@ -2,17 +2,17 @@
     <sys_security_acl_role action="INSERT_OR_UPDATE">
         <sys_class_name>sys_security_acl_role</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-01-28 19:44:52</sys_created_on>
-        <sys_id>9d9463be839bde10794ee470ceaad3e8</sys_id>
+        <sys_created_on>2025-01-30 18:03:19</sys_created_on>
+        <sys_id>4d502de3835b1210794ee470ceaad343</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>TrainingValidator.admin</sys_name>
+        <sys_name>.x_873666_simplic_0.admin_training</sys_name>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy/>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
-        <sys_security_acl display_value="TrainingValidator">099463ba839bde10794ee470ceaad3c1</sys_security_acl>
-        <sys_update_name>sys_security_acl_role_9d9463be839bde10794ee470ceaad3e8</sys_update_name>
+        <sys_security_acl display_value="task_sla">cc506de3835b1210794ee470ceaad378</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_4d502de3835b1210794ee470ceaad343</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-28 19:44:52</sys_updated_on>
-        <sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role>
+        <sys_updated_on>2025-01-30 18:03:19</sys_updated_on>
+        <sys_user_role display_value="x_873666_simplic_0.admin_training" name="x_873666_simplic_0.admin_training">7806426283139e10794ee470ceaad300</sys_user_role>
     </sys_security_acl_role>
 </record_update>

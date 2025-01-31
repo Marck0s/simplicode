@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>false</active>
+        <api_name>x_873666_simplic_0.PreventDupDatesUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>PreventDupDatesUtil</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var PreventDupDatesUtil = Class.create();
+PreventDupDatesUtil.prototype = {
+    initialize: function() {},
+
+    isTrainingScheduled: function(trainingSubject, trainingDate) {
+        var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+        grAgenda.addQuery('training', training);
+        grAgenda.query();
+        
+        var currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+
+        while (grAgenda.next()) {
+            var existingTrainingDate = new Date(grAgenda.training_date);
+            existingTrainingDate.setHours(0, 0, 0, 0);
+
+            if (existingTrainingDate.getTime() === trainingDate.getTime()) {
+                return true;  
+            }
+            continue;
+        }
+
+        return false;
+    },
+
+    type: 'TrainingSchedulingValidation'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:17:58</sys_created_on>
+        <sys_id>20b36967835b1210794ee470ceaad386</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>PreventDupDatesUtil</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_include_20b36967835b1210794ee470ceaad386</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-31 03:44:42</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>20b36967835b1210794ee470ceaad386</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:17:58</sys_created_on>
+        <sys_id>ebd36967835b1210794ee470ceaad389</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 18:17:58</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

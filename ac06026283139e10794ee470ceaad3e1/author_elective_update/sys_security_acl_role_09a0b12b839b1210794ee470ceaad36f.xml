@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 19:13:46</sys_created_on>
+        <sys_id>09a0b12b839b1210794ee470ceaad36f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TrainingUtils.admin</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_security_acl display_value="TrainingUtils">17f92b3683dbde10794ee470ceaad314</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_09a0b12b839b1210794ee470ceaad36f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 19:13:46</sys_updated_on>
+        <sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_security_acl_role_09a0b12b839b1210794ee470ceaad36f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-01-30 19:13:46</sys_created_on><sys_id>09a0b12b839b1210794ee470ceaad36f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>TrainingUtils.admin</sys_name><sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package><sys_policy/><sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope><sys_security_acl display_value="TrainingUtils">17f92b3683dbde10794ee470ceaad314</sys_security_acl><sys_update_name>sys_security_acl_role_09a0b12b839b1210794ee470ceaad36f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-01-30 19:13:46</sys_updated_on><sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>-1839213860</payload_hash>
+        <record_name>TrainingUtils.admin</record_name>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 19:13:47</sys_created_on>
+        <sys_id>99a0b12b839b1210794ee470ceaad375</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194b8a23ca80000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 19:13:47</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>8da0b12b0a9b12105d2c41e856df4f74</update_guid>
+        <update_guid_history>8da0b12b0a9b12105d2c41e856df4f74:-1839213860</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="TrainingUtils.admin">3aa079e7839b1210794ee470ceaad3d4</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 19:13:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>0d02a9ab3169452680f2e5e722b641e9</sys_id>
+        <sys_metadata>09a0b12b839b1210794ee470ceaad36f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>TrainingUtils.admin</sys_name>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_09a0b12b839b1210794ee470ceaad36f</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_09a0b12b839b1210794ee470ceaad36f">99a0b12b839b1210794ee470ceaad375</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 19:13:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

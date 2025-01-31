@@ -3,6 +3,7 @@
         <element label="Date" max_length="40" name="training_date" type="glide_date"/>
         <element label="Instructor Training" max_length="32" name="instructor_training" reference="sys_user" reference_qual="roles=x_873666_simplic_0.instructor_training^EQ" reference_qual_condition="roles=x_873666_simplic_0.instructor_training^EQ" type="reference"/>
         <element display="true" label="Training Name" max_length="32" name="training" reference="x_873666_simplic_0_training_course" type="reference"/>
+        <element label="Limit Slots" max_length="40" name="limit_slots" type="integer"/>
         <element label="Name" max_length="32" name="registrated" type="string"/>
         <element label="Available Slots" max_length="40" name="available_slots" type="integer"/>
         <index name="index">

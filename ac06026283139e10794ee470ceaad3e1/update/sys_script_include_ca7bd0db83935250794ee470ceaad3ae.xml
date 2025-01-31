@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
-        <active>true</active>
+        <active>false</active>
         <api_name>x_873666_simplic_0.UserAlreadyRegisteredUtil</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
@@ -38,28 +38,65 @@ UserAlreadyRegisteredUtil.prototype = {
             }
         }
 
-        //Validate Dup Trainings Applications | More than 3 applications | Expired Trainings
+		//Limit of Available Slots in a Training
+        var fullyBookedTrainings = [];
+
+        var grAgendaCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+        grAgendaCheck.query();
+        while (grAgendaCheck.next()) {
+            var availableSlots = parseInt(grAgendaCheck.available_slots, 10) || 0;
+            if (availableSlots <= 0) {
+                fullyBookedTrainings.push(grAgendaCheck.getUniqueValue());
+            }
+        }
+
+		//Prevent Instructors from Registrating in their own Trainings
+		var instructorOwnedTrainings = [];
+		var userId = gs.getUserID();
+		
+		var grInstructorCheck = new GlideRecord('x_873666_simplic_0_training_agenda');
+		grInstructorCheck.addQuery("instructor_training", userId);
+		grInstructorCheck.query();
+		while(grInstructorCheck.next()) {
+			instructorOwnedTrainings.push(grInstructorCheck.getUniqueValue());
+		}
+
+        //Validate Dup Trainings | More than 3 applications | Expired Trainings | Instructors to Own Trainings
         var toBeShown = [];
+
         var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
         grAgenda.query();
 
         while (grAgenda.next()) {
             var trainingCourse = grAgenda.training.toString();
 
-            const currentDate = new Date();
-            const trainingDate = new Date(grAgenda.training_date);
+            var currentDate = new Date();
+            var trainingDate = new Date(grAgenda.training_date);
 
             currentDate.setHours(0, 0, 0, 0);
             trainingDate.setHours(0, 0, 0, 0);
 
+            //Prevent registration if data training already passed by
             if (currentDate > trainingDate) {
                 continue;
             }
 
+            //Prevent registration if reached the limit of 3 for the same training
             if (coursesLimitReached.indexOf(trainingCourse) !== -1) {
                 continue;
             }
 
+			//Prevent registration if the number max of slots is full
+            if (fullyBookedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1) {
+                continue;
+            }
+
+			//Prevent instructor's registration on their own trainings
+			if (instructorOwnedTrainings.indexOf(grAgenda.getUniqueValue()) !== -1){
+				continue;
+			}
+
+            //Check if user is already registrated
             if (notTobeShown.indexOf(grAgenda.getUniqueValue()) == -1) {
                 toBeShown.push(grAgenda.getUniqueValue());
             }
@@ -68,85 +105,19 @@ UserAlreadyRegisteredUtil.prototype = {
 
     },
     type: 'UserAlreadyRegisteredUtil'
-};
-
-
-
-
-// // Verifica se a matrícula está fora do prazo permitido (até 1 dia antes do treinamento)
-// isRegistrationOutsideAllowedTime: function(trainingSchedule) {
-//     var now = new GlideDateTime();
-//     var gr = new GlideRecord('training_date');
-//     gr.addQuery('sys_id', trainingSchedule);
-//     gr.query();
-//     if (gr.next()) {
-//         var trainingDate = new GlideDateTime(gr.start_date);
-//         trainingDate.addDays(-1); // Reduz 1 dia da data do treinamento
-//         if (now.compareTo(trainingDate) > 0) {
-//             return true; // Inscrição fora do prazo permitido
-//         }
-//     }
-//     return false;
-// },
-
-// // Verifica se o treinamento atingiu a lotação máxima
-// isTrainingFull: function(trainingSchedule) {
-//     var gr = new GlideRecord('training_date');
-//     gr.addQuery('sys_id', trainingSchedule);
-//     gr.query();
-//     if (gr.next()) {
-//         var maxCapacity = gr.max_capacity; // Certifique-se de que esse campo existe na tabela
-//         var enrolledCount = gr.enrolled_count; // Pode ser um campo calculado ou agregado
-//         if (enrolledCount >= maxCapacity) {
-//             return true; // O treinamento está lotado
-//         }
-//     }
-//     return false;
-// },
-
-// // Verifica se o instrutor está tentando se matricular no próprio treinamento
-// isInstructorRegistering: function(user, trainingSchedule) {
-//     var gr = new GlideRecord('training_date');
-//     gr.addQuery('sys_id', trainingSchedule);
-//     gr.query();
-//     if (gr.next() && gr.instructor == user) {
-//         return true; // O usuário é o instrutor do treinamento
-//     }
-//     return false;
-// },
-
-// // Função principal para verificar todas as restrições
-// validateTrainingRegistration: function(user, trainingSchedule, trainingCourse) {
-//     if (this.isUserAlreadyRegistered(user, trainingSchedule)) {
-//         return 'User already registered';
-//     }
-//     if (this.isUserExceedingGradeLimit(user, trainingCourse)) {
-//         return 'User exceeded grade limit';
-//     }
-//     if (this.isRegistrationOutsideAllowedTime(trainingSchedule)) {
-//         return 'Registration outside allowed time';
-//     }
-//     if (this.isTrainingFull(trainingSchedule)) {
-//         return 'Training is full';
-//     }
-//     if (this.isInstructorRegistering(user, trainingSchedule)) {
-//         return 'Instructor cannot register for own training';
-//     }
-//     return 'Valid'; // Caso passe por todas as validações
-// }
-// });]]></script>
+};]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-01-29 19:26:51</sys_created_on>
         <sys_id>ca7bd0db83935250794ee470ceaad3ae</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>UserAlreadyRegisteredUtil</sys_name>
         <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
         <sys_update_name>sys_script_include_ca7bd0db83935250794ee470ceaad3ae</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-01-30 02:47:44</sys_updated_on>
+        <sys_updated_on>2025-01-31 03:44:38</sys_updated_on>
     </sys_script_include>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>ca7bd0db83935250794ee470ceaad3ae</id>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name/>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name/>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var TrainingSchedulingValidation = Class.create();
+TrainingSchedulingValidation.prototype = {
+    initialize: function() {},
+
+    // Função que verifica se existe outro treinamento para a mesma matéria na mesma data
+    isTrainingScheduled: function(trainingSubject, trainingDate) {
+        var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+        grAgenda.addQuery('training', training);
+        grAgenda.query();
+        
+        // Obter data atual
+        var currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0); // Garantir que as horas sejam ignoradas
+
+        while (grAgenda.next()) {
+            var existingTrainingDate = new Date(grAgenda.training_date);
+            existingTrainingDate.setHours(0, 0, 0, 0); // Garantir que as horas sejam ignoradas
+
+            // Se a data do treinamento existente for igual à data fornecida, continua para o próximo registro
+            if (existingTrainingDate.getTime() === trainingDate.getTime()) {
+                return true;  // Já existe um treinamento na mesma data
+            }
+
+            // Caso contrário, continue verificando os outros registros
+            continue;
+        }
+
+        // Caso contrário, retorna falso
+        return false;
+    },
+
+    type: 'TrainingSchedulingValidation'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:20:50</sys_created_on>
+        <sys_id>dcf3216b835b1210794ee470ceaad389</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_update_name>sys_script_include_dcf3216b835b1210794ee470ceaad389</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 18:20:50</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="DELETE">
+        <id>dcf3216b835b1210794ee470ceaad389</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:20:50</sys_created_on>
+        <sys_id>6d84a92b835b1210794ee470ceaad330</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 18:20:50</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</application>
+        <file_path/>
+        <instance_id>c97a658edb127d102f082a59139619db</instance_id>
+        <instance_name>dev205327</instance_name>
+        <name>sys_script_include_dcf3216b835b1210794ee470ceaad389</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name/&gt;&lt;caller_access/&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description/&gt;&lt;mobile_callable&gt;false&lt;/mobile_callable&gt;&lt;name/&gt;&lt;sandbox_callable&gt;false&lt;/sandbox_callable&gt;&lt;script&gt;&lt;![CDATA[var TrainingSchedulingValidation = Class.create();
+TrainingSchedulingValidation.prototype = {
+    initialize: function() {},
+
+    // Função que verifica se existe outro treinamento para a mesma matéria na mesma data
+    isTrainingScheduled: function(trainingSubject, trainingDate) {
+        var grAgenda = new GlideRecord('x_873666_simplic_0_training_agenda');
+        grAgenda.addQuery('training', training);
+        grAgenda.query();
+        
+        // Obter data atual
+        var currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0); // Garantir que as horas sejam ignoradas
+
+        while (grAgenda.next()) {
+            var existingTrainingDate = new Date(grAgenda.training_date);
+            existingTrainingDate.setHours(0, 0, 0, 0); // Garantir que as horas sejam ignoradas
+
+            // Se a data do treinamento existente for igual à data fornecida, continua para o próximo registro
+            if (existingTrainingDate.getTime() === trainingDate.getTime()) {
+                return true;  // Já existe um treinamento na mesma data
+            }
+
+            // Caso contrário, continue verificando os outros registros
+            continue;
+        }
+
+        // Caso contrário, retorna falso
+        return false;
+    },
+
+    type: 'TrainingSchedulingValidation'
+};
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-30 18:20:50&lt;/sys_created_on&gt;&lt;sys_id&gt;dcf3216b835b1210794ee470ceaad389&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="SimpliCode" source="x_873666_simplic_0"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="SimpliCode"&gt;ac06026283139e10794ee470ceaad3e1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_dcf3216b835b1210794ee470ceaad389&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-30 18:20:50&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;dcf3216b835b1210794ee470ceaad389&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-01-30 18:20:50&lt;/sys_created_on&gt;&lt;sys_id&gt;6d84a92b835b1210794ee470ceaad330&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-01-30 18:20:50&lt;/sys_updated_on&gt;&lt;table&gt;sys_script_include&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1956834620</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>aac23e6a83d39e10794ee470ceaad38c</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:20:50</sys_created_on>
+        <sys_id>bd84ed2b835b1210794ee470ceaad3a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>194b871c3990000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 18:20:50</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>b184ed2b205b12103f3da3115425d1a6</update_guid>
+        <update_guid_history>b184ed2b205b12103f3da3115425d1a6:-1956834620</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-01-30 18:22:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>6bf6ff1845574d1898ccf3a495ec88c4</sys_id>
+        <sys_metadata>dcf3216b835b1210794ee470ceaad389</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="SimpliCode" source="x_873666_simplic_0">ac06026283139e10794ee470ceaad3e1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="SimpliCode">ac06026283139e10794ee470ceaad3e1</sys_scope>
+        <sys_scope_delete display_value="">7065af98ec984a288c2a2cf43e70a640</sys_scope_delete>
+        <sys_update_name>sys_script_include_dcf3216b835b1210794ee470ceaad389</sys_update_name>
+        <sys_update_version display_value="sys_script_include_dcf3216b835b1210794ee470ceaad389">bd84ed2b835b1210794ee470ceaad3a6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-01-30 18:22:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
